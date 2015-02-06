@@ -3,8 +3,13 @@ float zoom = 1.0;
 float shiftX = 0.0;
 float shiftY = 0.0;
 
+Bone rightArm;
+
 void setup() {
   size(800, 600, P3D);
+  
+  rightArm = new Bone(50, -100, 0, 20, 60, 20, PI / 4, 0, 0);
+  rightArm.child = new Bone(0, 0, 0, 20, 60, 20, 0, 0, 0);
 }
 
 void draw() {
@@ -28,7 +33,7 @@ void draw() {
 
   // Robot
   noStroke();
-  fill(255, 0, 0, 128);
+  fill(255, 255, 0, 128);
 
   // head
   pushMatrix();
@@ -41,6 +46,8 @@ void draw() {
   translate(0, -120, 0);
   box(60, 90, 20);
   popMatrix();
+
+  rightArm.show();
 
   // arm right up
   pushMatrix();
@@ -68,13 +75,13 @@ void draw() {
 
   // leg right up
   pushMatrix();
-  translate(-20, -45, 0);
-  box(20, 60, 20);
+  translate(-20, -75, 30);
+  box(20, 20, 60);
   popMatrix();
 
   // leg right down
   pushMatrix();
-  translate(-20, 15, 0);
+  translate(-20, -35, 60);
   box(20, 60, 20);
   popMatrix();
 
