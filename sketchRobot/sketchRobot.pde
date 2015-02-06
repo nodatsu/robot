@@ -4,12 +4,21 @@ float shiftX = 0.0;
 float shiftY = 0.0;
 
 Bone rightArm;
+Bone leftArm;
+Bone rightLeg;
+Bone leftLeg;
 
 void setup() {
   size(800, 600, P3D);
   
-  rightArm = new Bone(50, -100, 0, 20, 60, 20, PI / 4, 0, 0);
-  rightArm.child = new Bone(0, 0, 0, 20, 60, 20, 0, 0, 0);
+  rightArm       = new Bone(  -30, -200,    0, 20, 60, 20, 0, 0, PI / 2);
+  rightArm.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
+  leftArm        = new Bone(   30, -200,    0, 20, 60, 20, 0, 0, -PI / 2);
+  leftArm.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
+  rightLeg       = new Bone(  -20, -120,    0, 20, 60, 20, 0, 0, 0);
+  rightLeg.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
+  leftLeg        = new Bone(   20, -120,    0, 20, 60, 20, 0, 0, 0);
+  leftLeg.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
 }
 
 void draw() {
@@ -28,8 +37,8 @@ void draw() {
   scale(zoom);
 
   // Ground
-//  fill(0, 255, 255, 64);
-//  box(500, 0, 500);
+  fill(0, 255, 255, 64);
+  box(500, 0, 500);
 
   // Robot
   noStroke();
@@ -37,64 +46,22 @@ void draw() {
 
   // head
   pushMatrix();
-  translate(0, -200, 0);
+  translate(0, -245, 0);
   sphere(30);
   popMatrix();
 
   // body
   pushMatrix();
-  translate(0, -120, 0);
+  translate(0, -165, 0);
   box(60, 90, 20);
   popMatrix();
 
   rightArm.show();
+  
+  leftArm.show();
 
-  // arm right up
-  pushMatrix();
-  translate(-60, -155, 0);
-  box(60, 20, 20);
-  popMatrix();
+  rightLeg.show();
 
-  // arm right down
-  pushMatrix();
-  translate(-120, -155, 0);
-  box(60, 20, 20);
-  popMatrix();
-
-  // arm left up
-  pushMatrix();
-  translate(60, -155, 0);
-  box(60, 20, 20);
-  popMatrix();
-
-  // arm left down
-  pushMatrix();
-  translate(120, -155, 0);
-  box(60, 20, 20);
-  popMatrix();
-
-  // leg right up
-  pushMatrix();
-  translate(-20, -75, 30);
-  box(20, 20, 60);
-  popMatrix();
-
-  // leg right down
-  pushMatrix();
-  translate(-20, -35, 60);
-  box(20, 60, 20);
-  popMatrix();
-
-  // leg right up
-  pushMatrix();
-  translate(20, -45, 0);
-  box(20, 60, 20);
-  popMatrix();
-
-  // leg right down
-  pushMatrix();
-  translate(20, 15, 0);
-  box(20, 60, 20);
-  popMatrix();
+  leftLeg.show();
 }
 
