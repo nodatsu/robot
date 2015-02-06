@@ -20,8 +20,8 @@ void draw() {
   scale(zoom);
   
   // オブジェクト
-  fill(0, 255, 255, 128);
-  box(500, 0, 500);
+//  fill(0, 255, 255, 128);
+//  box(500, 0, 500);
 
   // ロボット
   noStroke();
@@ -35,6 +35,16 @@ void draw() {
   pushMatrix();
   translate(0, -120, 0);
   box(60, 90, 20);
+  popMatrix();
+
+  pushMatrix();
+  translate(-60, -155, 0);
+  box(60, 20, 20);
+  popMatrix();
+
+  pushMatrix();
+  translate(-120, -155, 0);
+  box(60, 20, 20);
   popMatrix();
 
 }
