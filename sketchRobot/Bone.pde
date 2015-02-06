@@ -2,12 +2,14 @@ class Bone {
   PVector pos;
   PVector dim;
   PVector rot;
+  float swAmp;
   Bone child;
 
   Bone(float px, float py, float pz, float dx, float dy, float dz, float rx, float ry, float rz) {
     pos = new PVector(px, py, pz);
     dim = new PVector(dx, dy, dz);
     rot = new PVector(rx, ry, rz);
+    swAmp = 0;
   }
 
   void show() {
@@ -32,10 +34,14 @@ class Bone {
   void swing() {
 //    rot.x += 0.01;
     if (millis() / 1000 % 2 == 0) {
-      rot.x += 0.01;
+      rot.x += 0.01 * swAmp;
     }
     else {
-      rot.x -= 0.01;
+      rot.x -= 0.01 * swAmp;
     }
+  }
+  
+  void setSwing(float amp) {
+    swAmp = amp;
   }
 }

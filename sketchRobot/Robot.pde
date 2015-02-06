@@ -13,6 +13,16 @@ class Robot {
     rightLeg.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
     leftLeg        = new Bone(   20, -120,    0, 20, 60, 20, 0, 0, 0);
     leftLeg.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
+    
+    float amp = 3.0;
+    rightArm.setSwing(amp);
+    rightArm.child.setSwing(amp);
+    leftArm.setSwing(-amp);
+    leftArm.child.setSwing(-amp);
+    rightLeg.setSwing(-amp);
+    rightLeg.child.setSwing(-amp);
+    leftLeg.setSwing(amp);
+    leftLeg.child.setSwing(amp);
   }
 
   void update() {
