@@ -5,6 +5,7 @@ class Bone {
   Bone child;  // lower arm / leg
   float swAmp = 0;
   float swOrg = 0;
+  float swPitch = 1.0;
 
   // constractor
   Bone(float px, float py, float pz, float dx, float dy, float dz, float rx, float ry, float rz) {
@@ -16,7 +17,7 @@ class Bone {
   // display
   void show() {
 
-    rot.x = swOrg + sin(millis() / 1000.0) * swAmp;    
+    rot.x = swOrg + sin(PI * 2 * millis() / 1000.0 * swPitch) * swAmp;    
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
