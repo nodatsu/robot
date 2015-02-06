@@ -3,8 +3,12 @@ float zoom = 1.0;
 float shiftX = 0.0;
 float shiftY = 0.0;
 
+Bone armRightUp;
+
 void setup() {
   size(800, 600, P3D);
+
+  armRightUp = new Bone(-30, -155, 0, 20, 20, 60, 0, 0, PI / 2);
 }
 
 void draw() {
@@ -43,10 +47,11 @@ void draw() {
   popMatrix();
 
   // arm right up
-  pushMatrix();
-  translate(-60, -155, 0);
-  box(60, 20, 20);
-  popMatrix();
+//  pushMatrix();
+//  translate(-60, -155, 0);
+//  box(60, 20, 20);
+//  popMatrix();
+  armRightUp.show();
 
   // arm right down
   pushMatrix();
