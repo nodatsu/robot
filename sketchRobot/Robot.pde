@@ -5,9 +5,9 @@ class Robot {
   Bone leftLeg;
 
   Robot() {
-    rightArm       = new Bone(  -30, -200,    0, 20, 60, 20, 0, 0, PI / 2);
+    rightArm       = new Bone(  -30, -200,    0, 20, 60, 20, 0, 0, 0);
     rightArm.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
-    leftArm        = new Bone(   30, -200,    0, 20, 60, 20, 0, 0, -PI / 2);
+    leftArm        = new Bone(   30, -200,    0, 20, 60, 20, 0, 0, 0);
     leftArm.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
     rightLeg       = new Bone(  -20, -120,    0, 20, 60, 20, 0, 0, 0);
     rightLeg.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);

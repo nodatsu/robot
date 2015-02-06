@@ -11,6 +11,8 @@ class Bone {
   }
 
   void show() {
+    swing();
+    
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
     rotateX(rot.x);
@@ -25,5 +27,15 @@ class Bone {
     }
 
     popMatrix();
+  }
+  
+  void swing() {
+//    rot.x += 0.01;
+    if (millis() / 1000 % 2 == 0) {
+      rot.x += 0.01;
+    }
+    else {
+      rot.x -= 0.01;
+    }
   }
 }
