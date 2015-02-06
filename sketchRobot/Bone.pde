@@ -3,6 +3,8 @@ class Bone {
   PVector dim;
   PVector rot;
   float swAmp;
+  float swOrigin;
+  float swPitch;
   Bone child;
 
   Bone(float px, float py, float pz, float dx, float dy, float dz, float rx, float ry, float rz) {
@@ -32,16 +34,12 @@ class Bone {
   }
   
   void swing() {
-//    rot.x += 0.01;
-    if (millis() / 1000 % 2 == 0) {
-      rot.x += 0.01 * swAmp;
-    }
-    else {
-      rot.x -= 0.01 * swAmp;
-    }
+    rot.x = swOrigin + sin(millis() / 1000.0 * swPitch) * swAmp;
   }
   
-  void setSwing(float amp) {
+  void setSwing(float amp, float org, float pit) {
     swAmp = amp;
+    swOrigin = org;
+    swPitch = pit;
   }
 }
