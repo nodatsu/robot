@@ -1,5 +1,8 @@
 class Robot {
   PVector pos;
+  float scale;
+  float vel;
+  float theta;
   Bone rightArm;
   Bone leftArm;
   Bone rightLeg;
@@ -8,6 +11,9 @@ class Robot {
   // constractor
   Robot(float px, float py, float pz) {
     pos = new PVector(px, py, pz);
+    scale = 1.0;
+    vel = 0.0;
+    theta = 0.0;
     
     // create bones (position, size, rotate)
     rightArm       = new Bone(  -30, -200, 0, 20, 60, 20, 0, 0, 0);
@@ -36,8 +42,12 @@ class Robot {
 
   // update method
   void update() {
+    move();
+    
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
+    scale(scale);
+    rotateY(theta);
     
     // Robot
     noStroke();
@@ -61,6 +71,13 @@ class Robot {
     leftLeg.show();
     
     popMatrix();
+  }
+  
+  // move method
+  void move() {
+    theta += 0.005;
+    pos.x += vel * sin(theta);
+    pos.z += vel * cos(theta);
   }
 }
 

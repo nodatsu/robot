@@ -10,6 +10,9 @@ void setup() {
   size(800, 600, P3D);
   
   roboA = new Robot(0, 0, 0);
+  roboA.scale = 0.3;
+  roboA.vel = 0.4;
+  roboA.theta = 0.0;
 }
 
 void draw() {
