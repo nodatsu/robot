@@ -3,9 +3,9 @@ class Bone {
   PVector dim; // dimension size
   PVector rot; // rotation
   Bone child;  // lower arm / leg
-  float swAmp = 0;
-  float swOrg = 0;
-  float swPitch = 1.0;
+  PVector swAmp = new PVector();
+  PVector swOrg = new PVector();
+  PVector swPitch = new PVector();
 
   // constractor
   Bone(float px, float py, float pz, float dx, float dy, float dz, float rx, float ry, float rz) {
@@ -17,7 +17,9 @@ class Bone {
   // display
   void show() {
 
-    rot.x = swOrg + sin(PI * 2 * millis() / 1000.0 * swPitch) * swAmp;    
+    rot.x = swOrg.x + sin(PI * 2 * millis() / 1000.0 * swPitch.x) * swAmp.x;
+    rot.y = swOrg.y + sin(PI * 2 * millis() / 1000.0 * swPitch.y) * swAmp.y;
+    rot.z = swOrg.z + sin(PI * 2 * millis() / 1000.0 * swPitch.z) * swAmp.z;
     
     pushMatrix();
     translate(pos.x, pos.y, pos.z);

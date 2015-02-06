@@ -27,25 +27,25 @@ class WalkingRobot extends Robot {
     pitch = sqrt(vel * scale) * 1.0;
     amp = sqrt(vel * scale) * PI / 4;
 
-    rightArm.swAmp         =  amp;
-    rightArm.swPitch       =  pitch;
-    rightArm.child.swAmp   =  amp;
-    rightArm.child.swOrg   =  amp;
-    rightArm.child.swPitch =  pitch;
-    leftArm.swAmp          = -amp;
-    leftArm.swPitch        =  pitch;
-    leftArm.child.swAmp    = -amp;
-    leftArm.child.swOrg    =  amp;
-    leftArm.child.swPitch  =  pitch;
-    rightLeg.swAmp         = -amp;
-    rightLeg.swPitch       =  pitch;
-    rightLeg.child.swAmp   = -amp;
-    rightLeg.child.swOrg   = -amp;
-    rightLeg.child.swPitch =  pitch;
-    leftLeg.swAmp          =  amp;
-    leftLeg.swPitch        =  pitch;
-    leftLeg.child.swAmp    =  amp;
-    leftLeg.child.swOrg    = -amp;
-    leftLeg.child.swPitch  =  pitch;
+    rightArm.swAmp.x         =  amp;
+    rightArm.swPitch.x       =  pitch;
+    rightArm.child.swAmp.x   =  amp;
+    rightArm.child.swOrg.x   =  amp;
+    rightArm.child.swPitch.x =  pitch;
+    leftArm.swAmp.x          = -amp;
+    leftArm.swPitch.x        =  pitch;
+    leftArm.child.swAmp.x    = -amp;
+    leftArm.child.swOrg.x    =  amp;
+    leftArm.child.swPitch.x  =  pitch;
+    rightLeg.swAmp.x         = -amp;
+    rightLeg.swPitch.x       =  pitch;
+    rightLeg.child.swAmp.x   = -amp;
+    rightLeg.child.swOrg.x   = -amp;
+    rightLeg.child.swPitch.x =  pitch;
+    leftLeg.swAmp.x          =  amp;
+    leftLeg.swPitch.x        =  pitch;
+    leftLeg.child.swAmp.x    =  amp;
+    leftLeg.child.swOrg.x    = -amp;
+    leftLeg.child.swPitch.x  =  pitch;
   }
 }

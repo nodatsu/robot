@@ -6,6 +6,7 @@ float shiftY = 0.0;
 
 Robot roboA;
 WalkingRobot roboB;
+ByeRobot roboC;
 
 void setup() {
   size(800, 600, P3D);
@@ -19,6 +20,12 @@ void setup() {
   roboB.scale = 0.3;
   roboB.vel = 0.5;
   roboB.theta = 0.0;
+
+  roboC = new ByeRobot(-100, 0, 0);
+  roboC.scale = 0.3;
+  roboC.vel = 0.0;
+  roboC.theta = 0.0;
+
 }
 
 void draw() {
@@ -43,5 +50,6 @@ void draw() {
   // Robot
   roboA.update();
   roboB.update();
+  roboC.update();
 }
 
