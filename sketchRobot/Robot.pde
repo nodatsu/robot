@@ -3,7 +3,6 @@ class Robot {
   float scale;
   float vel;
   float theta;
-  float pitch;
   Bone rightArm;
   Bone leftArm;
   Bone rightLeg;
@@ -15,7 +14,6 @@ class Robot {
     scale = 1.0;
     vel = 0.0;
     theta = 0.0;
-    pitch = 1.0;
     
     // create bones (position, size, rotate)
     rightArm       = new Bone(  -30, -200, 0, 20, 60, 20, 0, 0, 0);
@@ -26,33 +24,11 @@ class Robot {
     rightLeg.child = new Bone(    0, 0, 0, 20, 60, 20, 0, 0, 0);
     leftLeg        = new Bone(   20, -120, 0, 20, 60, 20, 0, 0, 0);
     leftLeg.child  = new Bone(    0, 0, 0, 20, 60, 20, 0, 0, 0);
-
-    // set swing
-    //pitch = ??? //vel and scale function
-    rightArm.swAmp         =  PI / 4;
-    rightArm.swPitch       = pitch;
-    rightArm.child.swAmp   =  PI / 4;
-    rightArm.child.swOrg   =  PI / 4;
-    rightArm.child.swPitch = pitch;
-    leftArm.swAmp          = -PI / 4;
-    leftArm.swPitch        = pitch;
-    leftArm.child.swAmp    = -PI / 4;
-    leftArm.child.swOrg    =  PI / 4;
-    leftArm.child.swPitch  = pitch;
-    rightLeg.swAmp         = -PI / 4;
-    rightLeg.swPitch       = pitch;
-    rightLeg.child.swAmp   = -PI / 4;
-    rightLeg.child.swOrg   = -PI / 4;
-    rightLeg.child.swPitch = pitch;
-    leftLeg.swAmp          =  PI / 4;
-    leftLeg.swPitch        = pitch;
-    leftLeg.child.swAmp    =  PI / 4;
-    leftLeg.child.swOrg    = -PI / 4;
-    leftLeg.child.swPitch  = pitch;
   }
 
   // update method
   void update() {
+    setAction();
     move();
     
     pushMatrix();
@@ -90,5 +66,37 @@ class Robot {
     pos.x += vel * sin(theta);
     pos.z += vel * cos(theta);
   }
+  
+  // set action
+  void setAction() {
+    float pitch;
+    float amp;
+    
+    pitch = sqrt(vel * scale) * 1.0;
+    amp = sqrt(vel * scale) * PI / 4;
+
+    rightArm.swAmp         =  amp;
+    rightArm.swPitch       =  pitch;
+    rightArm.child.swAmp   =  amp;
+    rightArm.child.swOrg   =  amp;
+    rightArm.child.swPitch =  pitch;
+    leftArm.swAmp          = -amp;
+    leftArm.swPitch        =  pitch;
+    leftArm.child.swAmp    = -amp;
+    leftArm.child.swOrg    =  amp;
+    leftArm.child.swPitch  =  pitch;
+    rightLeg.swAmp         = -amp;
+    rightLeg.swPitch       =  pitch;
+    rightLeg.child.swAmp   = -amp;
+    rightLeg.child.swOrg   = -amp;
+    rightLeg.child.swPitch =  pitch;
+    leftLeg.swAmp          =  amp;
+    leftLeg.swPitch        =  pitch;
+    leftLeg.child.swAmp    =  amp;
+    leftLeg.child.swOrg    = -amp;
+    leftLeg.child.swPitch  =  pitch;
+  }
+  
+  
 }
 

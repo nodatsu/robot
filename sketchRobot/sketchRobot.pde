@@ -11,7 +11,7 @@ void setup() {
   
   roboA = new Robot(0, 0, 0);
   roboA.scale = 0.3;
-  roboA.vel = 0.4;
+  roboA.vel = 0.5;
   roboA.theta = 0.0;
 }
 
