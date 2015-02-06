@@ -14,14 +14,24 @@ void setup() {
   size(800, 600, P3D);
   
   // create bones (position, size, rotate)
-  rightArm       = new Bone(  -30, -200,    0, 20, 60, 20, 0, 0, PI / 2);
+  rightArm       = new Bone(  -30, -200,    0, 20, 60, 20, 0, 0, 0);
   rightArm.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
-  leftArm        = new Bone(   30, -200,    0, 20, 60, 20, 0, 0, -PI / 2);
+  leftArm        = new Bone(   30, -200,    0, 20, 60, 20, 0, 0, 0);
   leftArm.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
   rightLeg       = new Bone(  -20, -120,    0, 20, 60, 20, 0, 0, 0);
   rightLeg.child = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
   leftLeg        = new Bone(   20, -120,    0, 20, 60, 20, 0, 0, 0);
   leftLeg.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
+  
+  // set swing
+  rightArm.swAmp       =  0.01;
+  rightArm.child.swAmp =  0.01;
+  leftArm.swAmp        = -0.01;
+  leftArm.child.swAmp  = -0.01;
+  rightLeg.swAmp       = -0.01;
+  rightLeg.child.swAmp = -0.01;
+  leftLeg.swAmp        =  0.01;
+  leftLeg.child.swAmp  =  0.01;
 }
 
 void draw() {

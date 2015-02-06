@@ -3,6 +3,7 @@ class Bone {
   PVector dim; // dimension size
   PVector rot; // rotation
   Bone child;  // lower arm / leg
+  float swAmp = 0;
 
   // constractor
   Bone(float px, float py, float pz, float dx, float dy, float dz, float rx, float ry, float rz) {
@@ -13,6 +14,14 @@ class Bone {
 
   // display
   void show() {
+    
+    if (millis() / 1000 % 2 == 0) {
+      rot.x += swAmp;
+    }
+    else {
+      rot.x -= swAmp;
+    }
+    
     pushMatrix();
     translate(pos.x, pos.y, pos.z);
     rotateX(rot.x);
