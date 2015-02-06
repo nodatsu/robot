@@ -5,6 +5,7 @@ float shiftX = 0.0;
 float shiftY = 0.0;
 
 Robot roboA;
+WalkingRobot roboB;
 
 void setup() {
   size(800, 600, P3D);
@@ -13,6 +14,11 @@ void setup() {
   roboA.scale = 0.3;
   roboA.vel = 0.5;
   roboA.theta = 0.0;
+
+  roboB = new WalkingRobot(100, 0, 0);
+  roboB.scale = 0.3;
+  roboB.vel = 0.5;
+  roboB.theta = 0.0;
 }
 
 void draw() {
@@ -36,5 +42,6 @@ void draw() {
   
   // Robot
   roboA.update();
+  roboB.update();
 }
 
