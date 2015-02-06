@@ -24,14 +24,18 @@ void setup() {
   leftLeg.child  = new Bone(    0,    0,    0, 20, 60, 20, 0, 0, 0);
   
   // set swing
-  rightArm.swAmp       =  0.01;
-  rightArm.child.swAmp =  0.01;
-  leftArm.swAmp        = -0.01;
-  leftArm.child.swAmp  = -0.01;
-  rightLeg.swAmp       = -0.01;
-  rightLeg.child.swAmp = -0.01;
-  leftLeg.swAmp        =  0.01;
-  leftLeg.child.swAmp  =  0.01;
+  rightArm.swAmp       =  PI / 4;
+  rightArm.child.swAmp =  PI / 4;
+  rightArm.child.swOrg =  PI / 4;
+  leftArm.swAmp        = -PI / 4;
+  leftArm.child.swAmp  = -PI / 4;
+  leftArm.child.swOrg  =  PI / 4;
+  rightLeg.swAmp       = -PI / 4;
+  rightLeg.child.swAmp = -PI / 4;
+  rightLeg.child.swOrg = -PI / 4;
+  leftLeg.swAmp        =  PI / 4;
+  leftLeg.child.swAmp  =  PI / 4;
+  leftLeg.child.swOrg  = -PI / 4;
 }
 
 void draw() {
